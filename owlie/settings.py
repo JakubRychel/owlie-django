@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'frontend',
 ]
 
 MIDDLEWARE = [
@@ -75,11 +77,24 @@ WSGI_APPLICATION = 'owlie.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': 'owlie_db',
+        'ENGINE': 'django.db.backends.postgresql',
+        'USER': 'postgres',
+        'PASSWORD': '21kbp261',
+        'HOST': 'localhost',
+        'PORT': 5433
+    },
+    'dict_db': {
+        'NAME': 'owlie_dict',
+        'ENGINE': 'django.db.backends.postgresql',
+        'USER': 'postgres',
+        'PASSWORD': '21kbp261',
+        'HOST': 'localhost',
+        'PORT': 5433
     }
 }
 
+DATABASE_ROUTERS = ['owlie.routers.DefaultRouter']
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
