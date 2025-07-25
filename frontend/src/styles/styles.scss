@@ -1,0 +1,412 @@
+$light-background: #F5F5F5;
+$dark-background: #263238;
+$dark-background-light: #37474F;
+$primary: #2196F3;
+$primary-light: #64B5F6;
+$primary-dark: #1976D2;
+$primary-light-background: #BBDEFB;
+$primary-dark-background: #0D47A1;
+$secondary: #607D8B;
+$secondary-dark: #455A64;
+$secondary-light: #90A4AE;
+$secondary-ultra-light: #CFD8DC;
+$light-outline: #EEEEEE;
+$dark-outline: #455A64;
+$success: #4CAF50;
+$danger: #F44336;
+
+body {
+  padding-top: 56px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+  &.dark-theme {
+    background-color: $dark-background;
+    color: white;
+  }
+  &.light-theme {
+    background-color: $light-background;
+    color: black;
+  }
+}
+
+h1 {
+  color: $primary;
+  font-size: 4em;
+
+  .light-theme & {
+    text-shadow: .0375em .0375em white;
+  }
+  .dark-theme & {
+    text-shadow: .0375em .0375em black;
+  }
+}
+h3 {
+  font-size: 1.375em;
+  font-weight: 600;
+}
+h4 {
+  font-size: .875em;
+  font-weight: 600;
+
+  .light-theme & {
+    color: $secondary;
+  }
+  .dark-theme & {
+    color: $secondary-light;
+  }
+}
+
+.navbar {
+  transition: all .2s ease-in-out;
+
+  &-scrolled {
+    backdrop-filter: blur(5px);
+
+    .light-theme & {
+      background-color: rgba($light-background, 0.8);
+    }
+    .dark-theme & {
+      background-color: rgba($dark-background, 0.8);
+    }
+  }
+
+  &-brand {
+    font-weight: 600;
+
+    img {
+      margin-bottom: -6px;
+    }
+    .light-theme & {
+      color: $secondary;
+    }
+    .dark-theme & {
+      color: $secondary-light;
+    }
+  }
+}
+
+.nav-link {
+  position: relative;
+
+  &::before {
+    content: '';
+    z-index: -1;
+    transition: all .2s ease-out;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0;
+    background-color: $primary;
+  }
+  &:hover::before {
+    height: .2em;
+  }
+  .light-theme & {
+    color: $secondary;
+  }
+  .dark-theme & {
+    color: $secondary-light;
+  }
+}
+
+.input-group-text {
+  .light-theme & {
+    color: black;
+    background-color: $light-outline;
+    border-color: $light-outline;
+  }
+  .dark-theme & {
+    color: white;
+    background-color: $dark-outline;
+    border-color: $dark-outline;
+  }
+}
+
+.form-control {
+  .light-theme & {
+    color: black;
+    background-color: $light-background;
+    border-color: $light-outline;
+  }
+  .dark-theme & {
+    color: white;
+    background-color: $dark-background;
+    border-color: $dark-outline;
+  }
+}
+
+.form-text {
+  .light-theme & {
+    color: $secondary;
+  }
+  .dark-theme & {
+    color: $secondary-light;
+  }
+}
+
+.page-content {
+  .light-theme & {
+    background-color: white;
+  }
+  .dark-theme & {
+    background-color: $dark-background-light;
+  }
+}
+
+.progress {
+  height: 10px;
+
+  .progress-bar {
+    background-color: $primary;
+    transition: width .625s linear;
+  }
+  .light-theme & {
+    background-color: $light-background;
+  }
+  .dark-theme & {
+    background-color: $dark-background;
+  }
+}
+
+.text-muted {
+  font-size: .875em;
+
+  .light-theme & {
+    color: $secondary !important;
+  }
+  .dark-theme & {
+    color: $secondary-light !important;
+  }
+}
+
+.btn-form {
+  transition: all .15s ease-in-out;
+
+  & i.round-flag-icon, i.bi {
+    width: 1.25em;
+    height: 1.25em;
+  }
+  & h5 {
+    font-size: 1em;
+    font-weight: 600;
+  }
+  .light-theme & {
+    color: black;
+    border: 1px solid $light-outline;
+
+    &:hover {
+      color: black;
+      background-color: $light-background;
+      border-color: $light-outline;
+    }
+  }
+  .dark-theme & {
+    color: white;
+    border: 1px solid $dark-outline;
+
+    &:hover {
+      color: white;
+      background-color: $dark-background;
+      border-color: $dark-outline;
+    }
+  }
+}
+
+input[type="checkbox"]:checked + .btn-form {
+  .light-theme & {
+    background-color: $primary-light-background;
+    border-color: $primary-light-background;
+  }
+  .dark-theme & {
+    background-color: $primary-dark-background;
+    border-color: $primary-dark-background;
+  }
+}
+
+input[type="checkbox"]:disabled + .btn-form {
+  opacity: 1 !important;
+}
+
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-link {
+  text-decoration: none;
+  color: $primary;
+  font-weight: 600;
+
+  &:hover, &:focus, &:active {
+    color: $primary-dark;
+  }
+}
+
+.btn-secondary {
+  .light-theme & {
+    background-color: $secondary;
+    border-color: $secondary;
+
+    &:hover, &:focus, &:active {
+      background-color: $secondary-dark;
+      border-color: $secondary-dark;
+    }
+  }
+  .dark-theme & {
+    color: $dark-background;
+    background-color: $secondary-light;
+    border-color: $secondary-light;
+
+    &:hover, &:focus, &:active {
+      color: white;
+      background-color: $secondary;
+      border-color: $secondary;
+    }
+  }
+  &:disabled {
+    opacity: 0.5;
+  }
+}
+
+.btn-outline-secondary {
+  .light-theme & {
+    color: $secondary;
+    border-color: $secondary;
+
+    &:hover, &:focus, &:active {
+      color: white;
+      background-color: $secondary;
+    }
+  }
+  .dark-theme & {
+    color: $secondary-light;
+    border-color: $secondary-light;
+
+    &:hover, &:focus, &:active {
+      color: $dark-background;
+      background-color: $secondary-light;
+      border-color: $secondary-light;
+    }
+  }
+  &:disabled {
+    opacity: 0.5;
+  }
+}
+
+.btn-primary {
+  background-color: $primary !important;
+  border-color: $primary !important;
+
+  &:hover, &:focus, &:active {
+    background-color: $primary-dark !important;
+    border-color: $primary-dark !important;
+  }
+  &:disabled {
+    opacity: 0.5;
+  }
+}
+
+.btn-outline-primary {
+  color: $primary !important;
+  border-color: $primary !important;
+
+  &:hover, &:focus, &:active {
+    color: white !important;
+    background-color: $primary !important;
+  }
+  &:disabled {
+    opacity: 0.5;
+  }
+}
+
+.text-success,
+.valid-feedback {
+  color: $success !important;
+}
+
+.text-danger,
+.invalid-feedback {
+  color: $danger !important;
+}
+
+.form-control.is-valid {
+  border-color: $success !important;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%234CAF50' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1'/%3e%3c/svg%3e") !important;
+
+  &:focus {
+    box-shadow: 0 0 0 .25rem rgba($success, .25) !important;
+  }
+}
+
+.form-control.is-invalid {
+  border-color: $danger !important;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23F44336'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23F44336' stroke='none'/%3e%3c/svg%3e") !important;
+
+  &:focus {
+    box-shadow: 0 0 0 .25rem rgba($danger, .25) !important;
+  }
+}
+
+.hero {
+  height: 100vh;
+  margin-top: -56px;
+}
+
+footer {
+  color: white;
+  background-color: $primary;
+}
+
+i.bi {
+  font-style: normal;
+
+  &::before {
+    vertical-align: 0;
+  }
+  .badge {
+    font-weight: 200;
+    font-size: .625em;
+    background-color: $primary;
+  }
+}
+
+i.round-flag-icon {
+  width: 1em;
+  height: 1em;
+}
+
+hr {
+  height: 1px;
+  opacity: 1;
+  border: none;
+  position: relative;
+  overflow: visible;
+
+  .light-theme & {
+    color: $secondary;
+    background-color: $light-outline;
+  }
+  .dark-theme & {
+    color: $secondary-light;
+    background-color: $dark-outline;
+  }
+
+  &::before {
+    content: attr(data-content);
+    font-weight: 600;
+    padding: 0 2em;
+    position: absolute;
+    display: inline-block;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    .light-theme & {
+      background-color: white;
+    }
+    .dark-theme & {
+      background-color: $dark-background-light;
+    }
+  }
+}
